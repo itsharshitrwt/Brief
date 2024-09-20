@@ -33,14 +33,13 @@ export default function Pricing({ user }: { user?: CustomUser }) {
   };
 
   return (
-    <section className="py-24">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center ">
-          Simple, Transparent Pricing
+    <section style={{ backgroundImage: `url('https://wallpapers.com/images/hd/pure-black-background-zf3z6sqcvhjgev6l.jpg')` }} className="py-24">
+      <div className="bg-blue-600 mt-[-100px] h-2 animate-pulse"></div>
+      <div className="container mx-auto mt-10">
+        <h2 className="text-6xl font-bold text-center text-white mb-10">
+         Pricing
         </h2>
-        <p className="text-2xl text-indigo-500 font-bold text-center mb-12">
-          1 coin = 1 ₹
-        </p>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card className={cn("shadow-lg", { "border-indigo-500": false })}>
             <CardHeader>
@@ -57,7 +56,7 @@ export default function Pricing({ user }: { user?: CustomUser }) {
                 <li>AI-Powered Insights</li>
               </ul>
               <Button
-                className="mt-4 w-full"
+                className="mt-20 w-full bg-blue-600"
                 onClick={() => initiatePayment("Starter")}
                 disabled={loading}
               >
@@ -66,7 +65,7 @@ export default function Pricing({ user }: { user?: CustomUser }) {
             </CardContent>
           </Card>
 
-          <Card className={cn("shadow-lg", { "border-indigo-500": true })}>
+          <Card className=" border border-blue-600">
             <CardHeader>
               <CardTitle>Pro</CardTitle>
               <p className="text-sm text-muted-foreground">
@@ -83,7 +82,7 @@ export default function Pricing({ user }: { user?: CustomUser }) {
                 <li>Get One Podcast Summary Free 🚀</li>
               </ul>
               <Button
-                className="mt-4 w-full"
+                className="mt-4 w-full bg-blue-600"
                 onClick={() => initiatePayment("Pro")}
                 disabled={loading}
               >
@@ -107,8 +106,8 @@ export default function Pricing({ user }: { user?: CustomUser }) {
                 <li>Get two Podcast Summary Free 🚀</li>
               </ul>
               <Button
-                className="mt-4 w-full"
-                onClick={() => initiatePayment("Pro Plus")}
+                className="mt-4 w-full bg-blue-600"
+                onClick={() => "/"}
                 disabled={loading}
               >
                 Buy Coins

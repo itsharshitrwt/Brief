@@ -22,7 +22,7 @@ export default async function DashNav({
       <div className="flex items-center space-x-4">
         <div className="flex space-x-2 items-center">
           <span className="text-xl font-bold">{userCoins?.coins ?? 0}</span>
-          <Image src="/images/404.png" width={30} height={30} alt="coin" />
+          <Image src="/images/coins.png" width={50} height={30} alt="coin" />
         </div>
         <ProfileDropdown user={user}/>
       </div>

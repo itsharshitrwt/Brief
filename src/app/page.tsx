@@ -7,12 +7,16 @@ import { authOptions, CustomSession } from './api/auth/[...nextauth]/options'
 import { getServerSession } from 'next-auth'
 
 
-export default async function App(){
-  const session:CustomSession | null = await getServerSession(authOptions)
-  return <>
-  <Navbar user={session?.user}/>
-  <HeroSection/>
-  <Pricing user={session?.user}/>
-  <Footer/>
-  </>
+export default async function App() {
+  const session: CustomSession | null = await getServerSession(authOptions)
+  return (
+    <main>
+      
+       <HeroSection>
+        <Navbar user={session?.user} />
+       </HeroSection>
+      <Pricing user={session?.user} />
+      <Footer />
+    </main>
+  );
 }
