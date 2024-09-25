@@ -24,10 +24,10 @@ import { Button } from "../ui/button";
 export default function HeroSection({ children }: { children: React.ReactNode}) {
   return (
     <>
-      <header style={{ backgroundImage: `url('https://wallpapers.com/images/hd/pure-black-background-zf3z6sqcvhjgev6l.jpg')` }} className="py-24 text-center bg-black" >
+      <header style={{ backgroundImage: `url('https://wallpapers.com/images/hd/pure-black-background-zf3z6sqcvhjgev6l.jpg')` }} className="py-24 text-center bg-black " >
       {children}
       <div className="mb-10 mt-52 md:text-2xl">
-      <h1 className="text-6xl font-extrabold text-blue-600">Brief : <span className="text-white text-6xl font-bold ">your on the go 🚀<br></br>text based AI video Summarizer</span></h1>
+      <h1 className="md:text-6xl text-4xl font-extrabold text-blue-600 md:mt-0 mt-[-30%]">Brief : <span className="text-white md:text-6xl text-4xl font-bold ">your on the go 🚀<br></br>text based AI video Summarizer</span></h1>
       </div>
       <h1 className="text-4xl font-bold">
         <span className="text-white">Summarize  Any Podcast </span><span className="text-blue-600">Instantly 😉</span>
@@ -46,13 +46,17 @@ export default function HeroSection({ children }: { children: React.ReactNode}) 
       </div>
       <br></br>
       <div className="flex flex-wrap justify-center md:flex-no-wrap md:mx-4 lg:mx-12 xl:mx-24 mt-44">
-      <div className="w-full md:w-1/2 xl:w-1/3 p-6">
-        <h2 className="text-3xl font-bold mb-4 text-blue-600 flex">
-          Get the Instant Summary of <br></br>long hashty podcasts  😌
-        </h2>
-          <p className="text-lg text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-          <p className="text-lg text-white">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-        </div>
+      <div className="w-full md:w-1/2 xl:w-1/3 p-6 md:mt-0  mt-[-50px]">
+  <h2 className="text-3xl font-bold mb-4 text-blue-600 flex text-left">
+    Get the Instant Summary of <br></br>long hashty podcasts  😌
+  </h2>
+  <p className="text-lg text-white text-left">
+    Instantly get the gist of long podcasts with our AI-powered summaries, perfect for busy individuals short on time.
+  </p>
+  <p className="text-lg text-white text-left">
+    No more tedious listening or reading - our AI summarizes the key points for you, saving you time and effort.
+  </p>
+</div>
         <div className="w-full md:w-1/2 xl:w-2/3 p-6">
           
           <video width="100%" controls autoPlay muted  className="rounded-lg w-full sm:ml-10">
@@ -62,9 +66,28 @@ export default function HeroSection({ children }: { children: React.ReactNode}) 
       </div>
     </div>
 
+    <div className="flex flex-wrap justify-center md:flex-no-wrap md:mx-4 lg:mx-12 xl:mx-24 mt-44 ">
+      
+        <div className="w-full md:w-1/2 xl:w-2/3 p-6 md:ml-[-70px] m-auto">
+          
+          <video width="100%" controls autoPlay muted  className="rounded-lg w-full sm:ml-10">
+            <source src="/videos/video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+      </div>
+
+      <div className="w-full md:w-1/2 xl:w-1/3 p-6">
+        <h2 className="text-3xl font-bold mb-4 text-blue-600 flex text-right">
+          Get the Instant Summary of <br></br>long hashty podcasts  😌
+        </h2>
+          <p className="text-lg text-white text-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
+          <p className="text-lg text-white text-right">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        </div>
+    </div>
+
     <div className="">
       <h1 className="text-white text-5xl font-bold mt-32">Menu</h1>
-      <img src="/images/dashboard.png" alt="images" className="w-[80%] h-[80%] m-auto rounded-2xl mt-10"/>
+      <img src="/images/menu.png" alt="images" className="w-[80%] h-[80%] m-auto rounded-2xl mt-10"/>
     </div>
     
     </header>

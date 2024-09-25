@@ -12,20 +12,20 @@ export default async function DashNav({
   userCoins: CoinsType | null;
 }) {
   return (
-    <nav className="w-full flex justify-between items-center h-12 p-2">
-      <Link href="/">
-        <div className="flex items-center space-x-2">
-          <Image src="/images/logo.png" width={40} height={40} alt="lgo" />
-          <h1 className="text-2xl font-extrabold ">Brief</h1>
-        </div>
-      </Link>
-      <div className="flex items-center space-x-4">
-        <div className="flex space-x-2 items-center">
-          <span className="text-xl font-bold">{userCoins?.coins ?? 0}</span>
-          <Image src="/images/coins.png" width={50} height={30} alt="coin" />
-        </div>
-        <ProfileDropdown user={user}/>
-      </div>
-    </nav>
+    <nav className="bg-black h-20 p-4 flex justify-between items-center  rounded-b-3xl">
+  <Link href="/">
+    <div className="flex items-center space-x-4">
+      <Image src="/images/logo.png" className="bg-transparent bg-contain" width={60} height={60} alt="logo" />
+      <h1 className="text-4xl font-extrabold text-blue-600">Brief</h1>
+    </div>
+  </Link>
+  <div className="flex items-center space-x-6">
+    <div className="flex space-x-4 items-center">
+      <span className="text-3xl font-bold  text-white">{userCoins?.coins ?? 0}</span>
+      <Image src="/images/coins.png" width={70} height={40} alt="coin" className= "bg-transparent bg-contain" />
+    </div>
+    <ProfileDropdown user={user} />
+  </div>
+</nav>
   );
 }

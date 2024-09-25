@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from "react"
-import Loading from "../common/loading";
+import Loading from "../common/Loading";
 import axios, { AxiosError } from "axios";
 import { toast } from "sonner";
 import { CustomUser } from "@/app/api/auth/[...nextauth]/options";
@@ -41,7 +41,7 @@ export default function UrlInput({user}:{user:CustomUser}){
        }
     }
     return (
-        <div className="flex justify-center items-center mt-10 w-full">
+        <div className="flex justify-center items-center mt-10 w-full ">
             <form onSubmit={handleSubmit} className="relative w-full md:w-[500px] ">
               <input type="url" className="w-full md:w-[500px] h-12 rounded-lg ng-muted border-2 border-blue-600  p-2 outline-none" placeholder="Enter the podcast URL..." 
               value={url} onChange={(e)=> setUrl(e.target.value)} disabled = {loading}/>

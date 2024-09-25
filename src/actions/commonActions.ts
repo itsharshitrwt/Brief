@@ -9,7 +9,7 @@ export async function minusCoins(user_id:number|string):Promise<void> {
         },
         data:{
             coins:{
-                decrement: 20,
+                decrement: 10,
             },
         },
     });

@@ -6,42 +6,43 @@ import { Button } from "../ui/button";
 import { CustomUser } from "@/app/api/auth/[...nextauth]/options";
 import { toast } from "sonner";
 import axios, { AxiosError } from "axios";
+import getStripe from "@/lib/stripe";
 
 export default function Pricing({ user }: { user?: CustomUser }) {
   const [loading, setLoading] = useState(false);
 
   const initiatePayment = async (plan: string) => {
-    // if (!user) {
-    //   toast.error("Please login first.");
-    // }
-    // setLoading(true);
-    // try {
-    //   const { data } = await axios.post("/api/stripe/session", { plan: plan });
-    //   if (data?.id) {
-    //     const stripe = await getStripe();
-    //     await stripe?.redirectToCheckout({ sessionId: data?.id });
-    //   }
-    //   setLoading(false);
-    // } catch (error) {
-    //   setLoading(false);
-    //   if (error instanceof AxiosError) {
-    //     toast.error(error?.response?.data?.message);
-    //   } else {
-    //     toast.error("Something went wrong.please try again!");
-    //   }
-    // }
+    if (!user) {
+      toast.error("Please login first.");
+    }
+    setLoading(true);
+    try {
+      const { data } = await axios.post("/api/stripe/session", { plan: plan });
+      if (data?.id) {
+        const stripe = await getStripe();
+        await stripe?.redirectToCheckout({ sessionId: data?.id });
+      }
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      if (error instanceof AxiosError) {
+        toast.error(error?.response?.data?.message);
+      } else {
+        toast.error("Something went wrong.please try again!");
+      }
+    }
   };
 
   return (
     <section style={{ backgroundImage: `url('https://wallpapers.com/images/hd/pure-black-background-zf3z6sqcvhjgev6l.jpg')` }} className="py-24">
-      <div className="bg-blue-600 mt-[-100px] h-2 animate-pulse"></div>
+      <div className="bg-blue-600 mt-[-100px] h-[0.7px] animate-pulse"></div>
       <div className="container mx-auto mt-10">
         <h2 className="text-6xl font-bold text-center text-white mb-10">
          Pricing
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className={cn("shadow-lg", { "border-indigo-500": false })}>
+          <Card className= "md:w-full w-[90%] mx-auto">
             <CardHeader>
               <CardTitle>Starter</CardTitle>
               <p className="text-sm text-muted-foreground">
@@ -65,7 +66,7 @@ export default function Pricing({ user }: { user?: CustomUser }) {
             </CardContent>
           </Card>
 
-          <Card className=" border border-blue-600">
+          <Card className=" border border-blue-600 md:w-full w-[90%] mx-auto">
             <CardHeader>
               <CardTitle>Pro</CardTitle>
               <p className="text-sm text-muted-foreground">
@@ -73,9 +74,9 @@ export default function Pricing({ user }: { user?: CustomUser }) {
               </p>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-bold">500 Coins</p>
+              <p className="text-2xl font-bold">400 Coins</p>
               <ul className="mt-4 space-y-2">
-                <li>51 Podcast Summaries</li>
+                <li>41 Podcast Summaries</li>
                 <li>Top Questions Highlight</li>
                 <li>AI-Powered Insights</li>
                 <li>Priority Support</li>
@@ -91,15 +92,15 @@ export default function Pricing({ user }: { user?: CustomUser }) {
             </CardContent>
           </Card>
 
-          <Card className={cn("shadow-lg", { "border-indigo-500": false })}>
+          <Card className="md:w-full w-[90%] mx-auto">
             <CardHeader>
               <CardTitle>Pro Plus</CardTitle>
               <p className="text-sm text-muted-foreground">Ideal for teams.</p>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-bold">1000 Coins</p>
+              <p className="text-2xl font-bold">800 Coins</p>
               <ul className="mt-4 space-y-2">
-                <li>102 Podcast Summaries</li>
+                <li>82 Podcast Summaries</li>
                 <li>Top Questions Highlight</li>
                 <li>AI-Powered Insights</li>
                 <li>Dedicated Support</li>
