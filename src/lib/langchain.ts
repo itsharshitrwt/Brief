@@ -9,4 +9,4 @@ export const groqmodal = new ChatGroq({
     maxTokens: 7900,
 })
 
-//grog model
+//grog model//
