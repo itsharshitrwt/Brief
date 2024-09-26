@@ -15,6 +15,7 @@ export interface CustomUser {
   provider?: string | null;
 }
 export const authOptions: AuthOptions = {
+  secret: process.env.NEXT_AUTH_SECRET,
   pages: {
     signIn: "/",
   },
