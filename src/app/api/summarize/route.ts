@@ -18,6 +18,8 @@ interface summarizePayload{
     id:string
 }
 
+
+
 export async function POST(request:NextRequest) {
     try{
         const session:CustomSession | null = await getServerSession(authOptions)
@@ -28,7 +30,7 @@ export async function POST(request:NextRequest) {
         }
         const body:summarizePayload = await request.json()
     
-        const usercoins = await getUserCoins(session?.user?.id!);
+        const usercoins = await getUserCoins(session?.user?.id?? '');
         if(usercoins == null || (usercoins?.coins && usercoins?.coins<10)){
             return NextResponse.json({
                 message:"Insufficient Coins"
@@ -45,15 +47,15 @@ export async function POST(request:NextRequest) {
         })
 
         if(oldSummary != null && oldSummary.response){
-            await minusCoins(session?.user?.id!)
-            await coinsSpend(session?.user?.id! , body.id)
+            await minusCoins(session?.user?.id?? '')
+            await coinsSpend(session?.user?.id?? '' , body.id)
             return NextResponse.json({
                 message:"Video Summary ",
                 data:oldSummary?.response
             })
         }
         //if not found then extract the transcipt
-        let text:Document<Record<string , any>>[]
+        let text:Document<Record<string , unknown>>[]
 
         try{
             const loader = YoutubeLoader.createFromUrl(body.url, {
@@ -83,9 +85,9 @@ export async function POST(request:NextRequest) {
 
         const res = await summaryChain.invoke({input_documents:docsSummary})
 
-        await minusCoins(session?.user?.id!)
-        await coinsSpend(session?.user?.id! , body.id)
-        await updateSummary(res?.text, body.id)
+        await minusCoins(session?.user?.id?? '')
+        await coinsSpend(session?.user?.id?? '' , body.id)
+        await updateSummary(res?.text?? '', body.id)
         return NextResponse.json({
             message:"PodCast Sumamry",
             data: res?.text,

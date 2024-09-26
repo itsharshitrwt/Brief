@@ -1,7 +1,15 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-
+type SummaryType = {
+  
+  id: string;
+  user_id: number;
+  title: string;
+  url: string;
+  response?: string | null;
+  created_at: Date;
+}
 export default function OldSummaryCard({
   summary,
 }: {

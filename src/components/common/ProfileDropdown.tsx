@@ -26,7 +26,7 @@ export default function ProfileDropdown({user}:{user:CustomUser}){
             </Suspense>
             <DropdownMenu>
                 <DropdownMenuTrigger>
-                <UserAvatar image={user?.image ?? ""} name={user?.name!} />
+                <UserAvatar image={user?.image ?? ""} name={user?.name?? ""} />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>

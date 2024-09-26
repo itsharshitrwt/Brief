@@ -4,6 +4,10 @@ import { CustomUser } from "@/app/api/auth/[...nextauth]/options";
 import Image from "next/image";
 import Link from "next/link";
 import ProfileDropdown from "../common/ProfileDropdown";
+
+type CoinsType = {
+    coins:number
+}
 export default async function DashNav({
   user,
   userCoins,

@@ -8,6 +8,19 @@ import { CustomUser } from "@/app/api/auth/[...nextauth]/options";
 import { useRouter } from "next/navigation";
 
 
+type AddUrlErrorType = {
+    url?: string;
+    user_id?: string;
+}
+type SummaryType = {
+  
+  id: string;
+  user_id: number;
+  title: string;
+  url: string;
+  response?: string | null;
+  created_at: Date;
+}
 export default function UrlInput({user}:{user:CustomUser}){
   const router = useRouter()
     const [url , setUrl] = useState("");

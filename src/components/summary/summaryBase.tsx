@@ -6,13 +6,23 @@ import { toast } from "sonner";
 import Markdown from "react-markdown";
 import { clearCache } from "@/actions/commonActions";
 
+type SummaryType = {
+  
+  id: string;
+  user_id: number;
+  title: string;
+  url: string;
+  response?: string | null;
+  created_at: Date;
+}
+
 export default function SummaryBase({ summary }: { summary: SummaryType | null }) {
   const [loading, setLoading] = useState(true);
   const [response, setResponse] = useState("");
 
   useEffect(() => {
     if (summary?.response) {
-      setResponse(summary?.response!);
+      setResponse(summary?.response?? '');
       setLoading(false);
     } else {
       summarize();
@@ -39,7 +49,7 @@ export default function SummaryBase({ summary }: { summary: SummaryType | null }
     } catch (error) {
       setLoading(false);
       if (error instanceof AxiosError) {
-        if ([500, 401, 400].includes(error.response?.status!)) {
+        if ([500, 401, 400].includes(error.response?.status?? 0)) {
           toast.error(error.response?.data?.message);
         } else {
           toast.error("Something not right!");

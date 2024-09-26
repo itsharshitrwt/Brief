@@ -33,8 +33,8 @@ export default function LogoutModal({
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            This action will delete your current session and you can't access
-            private routes
+            {`This action will delete your current session and you can't access
+            private routes`}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

@@ -1,5 +1,5 @@
 import prisma from "@/lib/db.config";
-import { AuthOptions, ISODateString, User } from "next-auth";
+import { AuthOptions, ISODateString} from "next-auth";
 import { JWT } from "next-auth/jwt";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -23,7 +23,7 @@ export const authOptions: AuthOptions = {
       try {
         const findUser = await prisma.user.findUnique({
           where: {
-            email: user.email!,
+            email: user.email?? '',
           },
         });
         if (findUser) {
@@ -33,11 +33,11 @@ export const authOptions: AuthOptions = {
 
         const data = await prisma.user.create({
           data: {
-            email: user.email!,
-            name: user.name!,
-            oauth_id: account?.providerAccountId!,
-            provider: account?.provider!,
-            image: user?.image,
+            email: user.email?? '',
+            name: user.name?? '',
+            oauth_id: account?.providerAccountId?? '',
+            provider: account?.provider?? '',
+            image: user?.image ?? '',
           },
         });
         user.id = data?.id.toString();
@@ -58,11 +58,11 @@ export const authOptions: AuthOptions = {
     async session({
       session,
       token,
-      user,
+      //user
     }: {
       session: CustomSession;
       token: JWT;
-      user: User;
+      //user: User
     }) {
       session.user = token.user as CustomUser;
       return session;
@@ -71,8 +71,8 @@ export const authOptions: AuthOptions = {
 
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+      clientId: process.env.GOOGLE_CLIENT_ID?? '',
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET?? '',
       authorization: {
         params: {
           prompt: "consent",

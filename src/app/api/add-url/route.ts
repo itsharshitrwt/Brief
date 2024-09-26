@@ -1,4 +1,4 @@
-import { getToken } from "next-auth/jwt";
+
 import prisma from "@/lib/db.config";
 import vine , {errors} from "@vinejs/vine"
 import { NextRequest , NextResponse } from "next/server";
@@ -24,7 +24,7 @@ export async function POST(req:NextRequest) {
             }, {status: 400})
         }
 
-        let text:Document<Record<string , any>>[]
+        let text:Document<Record<string , unknown>>[]
 
         try{
             const loader = YoutubeLoader.createFromUrl(payload.url, {
@@ -44,7 +44,7 @@ export async function POST(req:NextRequest) {
             data:{
                 ...payload,
                 user_id:Number(payload.user_id),
-                title:text[0].metadata?.title ?? "404 brief title error"
+                title:text[0].metadata?.title as string
             }
         })
 

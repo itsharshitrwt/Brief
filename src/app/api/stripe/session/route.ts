@@ -34,7 +34,7 @@ export async function POST(req: NextRequest) {
     // * Create Transaction
     const transaction = await prisma.transactions.create({
       data: {
-        user_id: Number(session?.user?.id!),
+        user_id: Number(session?.user?.id?? ''),
         amount: product.amount,
       },
     });
