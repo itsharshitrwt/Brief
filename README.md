@@ -6,6 +6,7 @@ Brief converts long videos into concise, text-based summaries. Say goodbye to te
 * Easy to Understand
 * AI-Driven Analysis
 
+![Screenshot 2024-09-27 120856](https://github.com/user-attachments/assets/863f62f3-31dc-4fb4-91d4-0823cf212a1b)
 
 
 ## Installation for Contributions
