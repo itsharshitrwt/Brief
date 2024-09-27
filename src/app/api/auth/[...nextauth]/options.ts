@@ -1,5 +1,7 @@
+
+
 import prisma from "@/lib/db.config";
-import { AuthOptions, ISODateString} from "next-auth";
+import { AuthOptions, ISODateString } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -14,8 +16,12 @@ export interface CustomUser {
   image?: string | null;
   provider?: string | null;
 }
+
+
 export const authOptions: AuthOptions = {
+  
   secret: process.env.NEXT_AUTH_SECRET,
+  
   pages: {
     signIn: "/",
   },
@@ -72,8 +78,8 @@ export const authOptions: AuthOptions = {
 
   providers: [
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID?? '',
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET?? '',
+      clientId: process.env.GOOGLE_CLIENT_ID ?? '',
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
       authorization: {
         params: {
           prompt: "consent",
@@ -83,4 +89,6 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
+  debug: true,
 };
+

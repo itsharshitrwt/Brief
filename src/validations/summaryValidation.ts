@@ -1,8 +1,9 @@
-import vine from "@vinejs/vine"
-import { CustomErrorReporter } from "./customErrorReporter"
+import vine from "@vinejs/vine";
+import {CustomErrorReporter} from "./customErrorReporter"
 
-vine.errorReporter = ()=> new CustomErrorReporter()
+vine.errorReporter = () => new CustomErrorReporter();
+
 export const summarySchema = vine.object({
-    url:vine.string().url(),
-    user_id: vine.string(),
-})
+  url: vine.string().url(),
+  user_id: vine.string(),
+});

@@ -12,12 +12,12 @@ export class CustomErrorReporter implements ErrorReporterContract {
    * A collection of errors. Feel free to give accurate types
    * to this property
    */
-  errors:  Record<string, string>  = {};
+  errors: any = {};
 
   /**
    * VineJS call the report method
    */
-  report(message: string, rule: string, field: FieldContext) {
+  report(message: string, rule: string, field: FieldContext, meta?: any) {
     this.hasErrors = true;
 
     /**

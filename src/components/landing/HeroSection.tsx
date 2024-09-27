@@ -20,6 +20,7 @@
 
 import React from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function HeroSection({ children }: { children: React.ReactNode}) {
   return (
@@ -42,7 +43,9 @@ export default function HeroSection({ children }: { children: React.ReactNode}) 
         <span className="font-bold">Save time</span> and <span className="">boost productivity</span> with our AI-powered podcast summaries.
       </p>
       <div className="mt-2">
+        <Link href={"/dashboard"}>
         <Button className="mt-4 w-40 text-white bg-blue-600 hover:bg-blue-700 rounded-3xl font-semibold">Try for free</Button>
+        </Link>
       </div>
       <br></br>
       <div className="flex flex-wrap justify-center md:flex-no-wrap md:mx-4 lg:mx-12 xl:mx-24 mt-44">
