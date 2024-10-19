@@ -1,4 +1,3 @@
-
 "use client"
 import React from "react";
 import { Button } from "../ui/button";
@@ -105,8 +104,7 @@ export default function HeroSection({ children }: { children: React.ReactNode}) 
         <h2 className="text-3xl font-bold mb-4 text-blue-600 flex text-left">
           Enjoy your Old Summaries<br></br> for free 😌
         </h2>
-          <p className="text-lg text-white text-left"> Revisit all the summaries you've previously created without spending a single coin! 
-  Just log in to your account, and you'll have instant access to your saved summaries, allowing you to review them 
+          <p className="text-lg text-white text-left"> Revisit all the summaries you have previously created without spending a single coin! Just log in to your account, and you will have instant access to your saved summaries, allowing you to review them 
   quickly and efficiently</p>
           <p className="text-lg text-white text-left">Enjoy the convenience of accessing your summaries at any time, ensuring that you can refresh 
           your memory at lightning speed—no fees, no hassle!</p>
